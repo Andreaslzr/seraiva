@@ -2,28 +2,21 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from .gerenciador import Gerenciador
 
-# class UsuarioCustomizado(AbstractBaseUser,PermissionsMixin):
-#      email = models.EmailField("endereço de email", unique=True)
-#      is_staff = models.BooleanField(default=False)
-#      is_active = models.BooleanField(default=True)
-#      telefone = models.CharField(max_length=15, null=True, blank=True)
-#      endereco = models.CharField(max_length=200)
-#      cpf = models.CharField(max_length=20)
+class UsuarioCustomizado(AbstractBaseUser,PermissionsMixin):
+    email = models.EmailField("endereço de email", unique=True)
+    is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    telefone = models.CharField(max_length=15, null=True, blank=True)
+    endereco = models.CharField(max_length=200)
+    cpf = models.CharField(max_length=20)
      
-#      objects = Gerenciador()
+    objects = Gerenciador()
 
-#      USERNAME_FIELD = "email"
-#      REQUIRED_FIELDS = []
-
-#      def __str__(self):
-#           return self.email
-
-class usuarios(models.Model):
-    nome = models.CharField(max_length=50)
-    email = models.EmailField()
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = []
 
     def __str__(self):
-        return self.nome    
+        return self.email   
 
 class categorias(models.Model):
     nome = models.CharField(max_length=50)
@@ -55,7 +48,7 @@ class livros(models.Model):
     
 class emprestimo(models.Model):
     livroFK = models.ForeignKey(livros, related_name='emprestimoLivros', on_delete=models.CASCADE)
-    usuarioFK = models.ForeignKey(usuarios, related_name='emprestimoUsuario', on_delete=models.CASCADE)
+    usuarioFK = models.ForeignKey(UsuarioCustomizado, related_name='emprestimoUsuario', on_delete=models.CASCADE)
     dataEmprestimo = models.DateField(auto_now_add=True)
     prazo = models.DateField()
     dataDevolucao = models.DateField()
