@@ -37,3 +37,7 @@ class LivrosView(ModelViewSet):
 class EmprestimoView(ModelViewSet):
     queryset = emprestimo.objects.all()
     serializer_class = EmprestimoSerializer
+
+class EmprestimoLivroView(ModelViewSet):
+    queryset = emprestimoLivros.objects.all()
+    serializer_class = EmprestimoSerializer

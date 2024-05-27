@@ -25,3 +25,12 @@ class EmprestimoSerializer(serializers.ModelSerializer):
         model = emprestimo
         fields = '__all__'
         many = True
+
+class EmprestimoSerializer(serializers.ModelSerializer):
+    livroFK = LivrosSerializer
+    
+    class Meta:
+        model = emprestimoLivros
+        fields = '__all__'
+        many = True
+

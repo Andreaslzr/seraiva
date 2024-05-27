@@ -1,13 +1,14 @@
 <script setup lang="ts">
 
-
-
 </script>
 
 <template>
-    <h1>Tela carrinho</h1>
+    <div class="default-layout">
+        <Header/>
+        <slot/>
+    </div>
 </template>
 
 <style scoped lang="scss">
-
+    
 </style>

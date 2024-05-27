@@ -17,6 +17,11 @@ class UsuarioCustomizado(AbstractBaseUser,PermissionsMixin):
 
     def __str__(self):
         return self.email   
+    
+class autores(models.Model):
+    nome = models.CharField(max_length=50)
+    foto = models.CharField(max_length=1000)
+    biografia = models.CharField(max_length=100)
 
 class categorias(models.Model):
     nome = models.CharField(max_length=50)
@@ -36,25 +41,32 @@ class livros(models.Model):
     descricao = models.CharField(max_length=1000)
     formato = models.CharField(max_length=30, choices=FORMATO_LIVRO)
     n_edicao = models.IntegerField()
-    autor = models.CharField(max_length=100)
+    autor = models.CharField(max_length=50)
     ano_pub = models.IntegerField()
     quantidade = models.IntegerField()
     valor = models.DecimalField(max_digits=10, decimal_places=2)
     categoriaFK = models.ForeignKey(categorias, related_name='livrosCategorias', on_delete=models.CASCADE)
-    avaliacao = models.DecimalField(max_digits=1, decimal_places=1)
+    avaliacao = models.DecimalField(max_digits=2, decimal_places=1)
 
     def __str__(self):
         return self.titulo
     
 class emprestimo(models.Model):
-    livroFK = models.ForeignKey(livros, related_name='emprestimoLivros', on_delete=models.CASCADE)
     usuarioFK = models.ForeignKey(UsuarioCustomizado, related_name='emprestimoUsuario', on_delete=models.CASCADE)
     dataEmprestimo = models.DateField(auto_now_add=True)
-    prazo = models.DateField()
-    dataDevolucao = models.DateField()
+    prazo = models.DateField(null=True, blank=True)
+    dataDevolucao = models.DateField(null=True, blank=True)
 
     def __str__(self):
         return self.livroFK.titulo
+    
+class emprestimoLivros(models.Model):
+     livroFK = models.ForeignKey(livros, related_name='emprestimoLivros', on_delete=models.CASCADE)
+     quantidade = models.IntegerField()
+     emprestimoFK = models.ForeignKey(livros, related_name='emprestimoFK', on_delete=models.CASCADE)
+
+     def __str__(self):
+            return self.livroFK.titulo
 
 
 

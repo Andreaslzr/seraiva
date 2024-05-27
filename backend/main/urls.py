@@ -6,5 +6,6 @@ router = DefaultRouter()
 router.register(r'categorias',CategoriasView)
 router.register(r'livros',LivrosView)
 router.register(r'emprestimo',EmprestimoView)
+router.register(r'emprestimo-livros',EmprestimoLivroView)
 
 urlpatterns = router.urls
