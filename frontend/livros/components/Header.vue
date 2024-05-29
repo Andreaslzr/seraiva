@@ -12,14 +12,14 @@
         </div>
         <div class="menu-item flex align-items-center justify-content-center mr-4">
           <i class="pi pi-shopping-cart mr-1"></i>
-          <NuxtLink to="/login">Carrinho</NuxtLink>
+          <NuxtLink to="/carrinho">Carrinho</NuxtLink>
         </div>
         <div class="menu-item flex align-items-center justify-content-center mr-4">
-          <i class="pi pi-shopping-cart mr-1"></i>
+          <i class="pi pi-book mr-1"></i>
           <NuxtLink to="/bibliotecaria">bibliotecaria</NuxtLink>
         </div>
         <div class="menu-item flex align-items-center justify-content-center mr-4">
-          <i class="pi pi-shopping-cart mr-1"></i>
+          <i class="pi pi-address-book mr-1"></i>
           <NuxtLink to="/autor">autor</NuxtLink>
         </div>
     </div>

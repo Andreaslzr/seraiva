@@ -58,3 +58,11 @@ class AdminEmprestimoLivros(admin.ModelAdmin):
 
 admin.site.register(emprestimoLivros,AdminEmprestimoLivros)
 
+class AdminAutor(admin.ModelAdmin):
+    list_display = ['id','nome']
+    list_display_links = ('id','nome')
+    search_fields = ('nome',)
+    list_per_page = 10
+
+admin.site.register(autores,AdminAutor)
+

@@ -30,7 +30,7 @@ export default defineNuxtConfig({
         getSession: { path: '/usuarios', method: 'get' },
       },
       token: { signInResponseTokenPointer: '/auth_token', type: 'Token' },
-      pages: { login: '/' },
+      pages: { login: '/login' },
       sessionDataType: {
         results: 'Array'
       }

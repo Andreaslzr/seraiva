@@ -24,11 +24,11 @@ const fazerLogin = () => {
 }
 
 
-const painel = ref();
+//const painel = ref();
 
-const toggle = (event: any) => {
+/*const toggle = (event: any) => {
     painel.value.toggle(event);
-}
+}*/
 </script>
 
 <template>

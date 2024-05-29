@@ -12,11 +12,6 @@ const show = () => {
 const livros: Ref<Array<Livro>> = ref([]);
 
   
-definePageMeta({
-  middleware: "auth",
-});
-
-
 
 const atualizarLivros = () => {
   getLivros().then((livrosEncontrados) => {
@@ -44,7 +39,7 @@ const toggle = (event: any) => {
                 </iframe>
             </OverlayPanel>
         </div>
-    <h2 class="mt-4 mb-4">Nossos Livros</h2>
+    <h1 class="mt-4 mb-4">SERAIVA</h1>
     <Toast />
     <div class="produtos-container grid align-items-center justify-content-center">
         <div v-for="(livro,index) in livros">
@@ -63,8 +58,6 @@ const toggle = (event: any) => {
   background-image: url("background.jpg");
   background-repeat: repeat;
   background-size: cover;
-
-  
 }
 
 .p-toast-summary		{

@@ -30,7 +30,9 @@ const livroNoCarrinho = computed(()=>{
       <Checkbox v-model="livroNoCarrinho" :binary="true" :readonly="true"/>
     </div>
     <div class="produto-imagem">
-      <img :src="props.livro.imagem" />
+      <NuxtLink :to="`/${livro.id}`">
+        <img :src="props.livro.imagem" />
+      </NuxtLink>
     </div>
     <div>
       <h4 class="produto-nome">{{ props.livro.titulo }}</h4>
@@ -43,7 +45,7 @@ const livroNoCarrinho = computed(()=>{
       </div>
       <div>
         <label>Nota: </label>
-        <span>{{ props.livro.avaliacao }} </span>
+        <span>{{ props.livro.avaliacao}} </span>
       </div>
     </div>
     <Button @click="adicionarItem" class="botao-add" label="Adicionar" />
