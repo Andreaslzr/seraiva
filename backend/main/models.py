@@ -23,6 +23,9 @@ class autores(models.Model):
     foto = models.CharField(max_length=1000)
     biografia = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.nome
+
 class categorias(models.Model):
     nome = models.CharField(max_length=50)
 
@@ -41,7 +44,7 @@ class livros(models.Model):
     descricao = models.CharField(max_length=1000)
     formato = models.CharField(max_length=30, choices=FORMATO_LIVRO)
     n_edicao = models.IntegerField()
-    autor = models.ForeignKey(autores, related_name='livroAutor', on_delete=models.CASCADE)
+    autorFK = models.ForeignKey(autores, related_name='livroAutor', on_delete=models.CASCADE)
     ano_pub = models.IntegerField()
     quantidade = models.IntegerField()
     valor = models.DecimalField(max_digits=10, decimal_places=2)

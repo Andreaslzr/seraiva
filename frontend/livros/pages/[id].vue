@@ -15,9 +15,9 @@
         <h3>Número de paginas: {{ livro.paginas }}</h3>
         <h3>Categoria: {{ livro.categoriaFK.nome }}</h3>
         <h1>Autor</h1>
-        <h3>Nome: {{ livro.autor.nome }}</h3>
-        <img :src=" livro.autor.foto "  width="500" height="500" >
-        <h3>Biografia: {{ livro.autor.biografias }}</h3>
+        <h3>Nome: {{ livro.autorFK.nome }}</h3>
+        <img :src=" livro.autorFK.foto "  width="500" height="500" >
+        <h3>Biografia: {{ livro.autorFK.biografia }}</h3>
     </main>
 </template>
 

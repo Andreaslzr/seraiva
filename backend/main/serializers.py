@@ -14,8 +14,15 @@ class CategoriasSerializer(serializers.ModelSerializer):
         fields = '__all__'
         many = True
 
+class AutoresSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = autores
+        fields = '__all__'
+        many = True
+
 class LivrosSerializer(serializers.ModelSerializer):
     categoriaFK = CategoriasSerializer(read_only=True)
+    autorFK = AutoresSerializer(read_only=True)
     class Meta:
         model = livros
         fields = '__all__'
@@ -35,8 +42,3 @@ class EmprestimoLivroSerializer(serializers.ModelSerializer):
         fields = '__all__'
         many = True
 
-class AutoresSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = autores
-        fields = '__all__'
-        many = True
