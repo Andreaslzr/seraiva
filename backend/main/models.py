@@ -41,7 +41,7 @@ class livros(models.Model):
     descricao = models.CharField(max_length=1000)
     formato = models.CharField(max_length=30, choices=FORMATO_LIVRO)
     n_edicao = models.IntegerField()
-    autor = models.CharField(max_length=50)
+    autor = models.ForeignKey(autores, related_name='livroAutor', on_delete=models.CASCADE)
     ano_pub = models.IntegerField()
     quantidade = models.IntegerField()
     valor = models.DecimalField(max_digits=10, decimal_places=2)

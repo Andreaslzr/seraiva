@@ -8,7 +8,7 @@
 <template>
     <main class="container flex flex-column align-items-center">
         <h1>Tela detalhes livros</h1>
-            <img :src=" livro.imagem "  width="500" height="500" >
+        <img :src=" livro.imagem "  width="500" height="500" >
         <h3>Titulo: {{ livro.titulo }}</h3>
         <h3>Descrição: {{ livro.descricao }}</h3>
         <h3>Formato: {{ livro.formato }}</h3>
@@ -16,6 +16,8 @@
         <h3>Categoria: {{ livro.categoriaFK.nome }}</h3>
         <h1>Autor</h1>
         <h3>Nome: {{ livro.autor.nome }}</h3>
+        <img :src=" livro.autor.foto "  width="500" height="500" >
+        <h3>Biografia: {{ livro.autor.biografias }}</h3>
     </main>
 </template>
 
